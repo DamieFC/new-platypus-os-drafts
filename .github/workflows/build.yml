@@ -1,0 +1,23 @@
+name: build
+
+on:
+  push:
+    branches: [ 0.05 ]
+  pull_request:
+    branches: [ 0.05 ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: change_directory_first
+      run: cd ..
+    - name: change_directory_second
+      run: cd ..
+    - name: chmod shell files
+      run: chmod +x *.sh
+    - name: configure
+      run: ./config.sh
